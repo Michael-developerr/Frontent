@@ -1,11 +1,18 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
-    "noImplicitAny": true,
+    "outDir": "./dist/",//куда производится сборка , но она не важна так как мы собираем с помощью webpacka
+    "noImplicitAny": true,//не позвоялет какие то переменные без явыного типа 
     "module": "es6",
-    "target": "es5",
+    "target": "es5",  //для поддержки браузеров 
     "jsx": "react",
-    "allowJs": true,
-    "moduleResolution": "node"
+    "allowJs": true,//обработка не только js, но ts
+    "moduleResolution": "node", //здесь два свойства nodeи классик в 99%node 
+    "esModuleInterop": true, //первый флаг позволяет  работать вместо require,import и export
+    "allowSyntheticDefaultImports": true  // чтобы можно было писать импроты без as (import * as path from "path";) н
+  },
+   "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
   }
 }
