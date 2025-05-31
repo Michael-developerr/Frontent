@@ -7,8 +7,15 @@ export interface Buildpaths {
   html: string;
 }
 
+
+export interface BuildEnv {
+  mode:BuildMode
+  port:number
+}
+
 export interface BultdOptions {
     mode:BuildMode;
     paths:Buildpaths
     isDev:boolean
+    port: number
 }

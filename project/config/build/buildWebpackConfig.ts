@@ -5,12 +5,13 @@ import { buildLoaders } from "./buildLoaders";
 import { buildResolvers } from "./buildResolvers";
 import { buildPlugins } from "./buildPlugins";
 import { BultdOptions } from "./types/config";
+import { buildDevServer } from "./buildDevServer";
 
 
 export function buildWebpackConfig(
   options: BultdOptions
 ): webpack.Configuration {
-  const { paths, mode } = options;
+  const { paths, mode,isDev } = options;
   return {
     mode: mode,
     entry: paths.entry, //показывает где мы находимся,команда  __dirname тякущая папка
@@ -27,5 +28,7 @@ export function buildWebpackConfig(
       rules: buildLoaders(), //rules обрабатывают лоудеры, они предназначены для обработки файлов, которые выходят за рамки js (pg,jpg,svg,css)
     },
     resolve: buildResolvers(), //чтобы не писать расширение для этих файлов типо index.js
+    devtool:isDev? 'inline-source-map' :false,
+    devServer:isDev? buildDevServer(options):undefined
   };
 }
