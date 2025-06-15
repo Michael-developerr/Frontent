@@ -8,5 +8,9 @@ export function buildResolvers(options: BultdOptions): ResolveOptions {
     modules: [options.paths.src, "node_modules"],
     mainFields: ["index"],
     alias: {},
+     fallback: {
+      "events": require.resolve("events/"),
+      "set-cookie-parser": require.resolve("set-cookie-parser")
+    }
   };
 }
