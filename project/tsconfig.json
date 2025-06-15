@@ -8,7 +8,10 @@
 
     "allowJs": true, //обработка не только js, но ts
     "moduleResolution": "node", //здесь два свойства nodeи классик в 99%node
-    // "baseUrl": ".", // для абсолютного импорта
+    "baseUrl": ".", // для абсолютного импорта
+    "paths": {
+      "*": ["./src/*"]
+    },
     "esModuleInterop": true, //первый флаг позволяет  работать вместо require,import и export
     "allowSyntheticDefaultImports": true // чтобы можно было писать импроты без as (import * as path from "path";) н
   },

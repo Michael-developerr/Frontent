@@ -26,7 +26,7 @@ export function buildWebpackConfig(
       rules: buildLoaders(options), //rules обрабатывают лоудеры, они предназначены для обработки файлов, которые выходят за рамки js (pg,jpg,svg,css)
     },
     
-    resolve: buildResolvers(), //чтобы не писать расширение для этих файлов типо index.js
+    resolve: buildResolvers(options), //чтобы не писать расширение для этих файлов типо index.js
     devtool: isDev ? "inline-source-map" : false,
     devServer: isDev ? buildDevServer(options) : undefined,
   };

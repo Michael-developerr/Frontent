@@ -19,3 +19,21 @@ export function classNames(
 // ]);
 
 // ("remove-btn hovered selectable pdp");
+
+// Пример
+// <button
+//   className={classNames("btn", {
+//     "btn--active": isActive,
+//     "btn--disabled": isDisabled,
+//   }, ["btn--primary"])}
+// >
+//   Нажми меня
+// </button>
+// Если isActive = true, isDisabled = false:
+
+// html
+// <button class="btn btn--primary btn--active">
+// Если isActive = false, isDisabled = true:
+
+// html
+// <button class="btn btn--primary btn--disabled">
