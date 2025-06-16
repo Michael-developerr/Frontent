@@ -2,7 +2,12 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import webpack from "webpack";
 import { BultdOptions } from "./types/config";
 
-export function buildLoaders({isDev}: BultdOptions): webpack.RuleSetRule[] {
+export function buildLoaders({ isDev }: BultdOptions): webpack.RuleSetRule[] {
+  const svgLoader = {
+    test: /\.svg$/,
+    use: ["@svgr/webpack"],
+  };
+
   const cssLoaders = {
     test: /\.s[ac]ss$/i,
     use: [
@@ -11,11 +16,13 @@ export function buildLoaders({isDev}: BultdOptions): webpack.RuleSetRule[] {
       // Translates CSS into CommonJS
       {
         loader: "css-loader",
-         options: {
+        options: {
           modules: {
             // auto: true,
             auto: (resPath: string) => Boolean(resPath.includes(".module")),
-            localIdentName: isDev ? "[path][name]__[local]--[hash:base64:5]":'[hash:base64:8]',
+            localIdentName: isDev
+              ? "[path][name]__[local]--[hash:base64:5]"
+              : "[hash:base64:8]",
             exportLocalsConvention: "camelCase",
             namedExport: false,
           },
@@ -33,5 +40,14 @@ export function buildLoaders({isDev}: BultdOptions): webpack.RuleSetRule[] {
     use: "ts-loader", //здесь мы используем ts-loader ,который позвоялет работать с ts файлами
     exclude: /node_modules/, //искючаем node_modules
   };
-  return [typescriptLoader, cssLoaders];
+
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+    use: [
+      {
+        loader: "file-loader",
+      },
+    ],
+  };
+  return [fileLoader, svgLoader, typescriptLoader, cssLoaders];
 }

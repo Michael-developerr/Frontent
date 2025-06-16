@@ -10,12 +10,12 @@ import { AppRouter } from "./providers/route";
 import { NavBar } from "widgets/Navbar";
 
 const App = () => {
-  const { theme,  } = useTheme();
+  const { theme } = useTheme();
 
   return (
     <div className={classNames("app", {}, [theme])}>
+      <NavBar />
 
-      <NavBar/>
       <AppRouter />
     </div>
   );
