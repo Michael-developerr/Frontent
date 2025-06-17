@@ -6,7 +6,8 @@ export function buildDevServer(options: BultdOptions):DevServerConfiguration {
 
     port:options.port,
     open:true,
-    historyApiFallback:true
+    historyApiFallback:true,
+    hot:true
 
   };
 }
