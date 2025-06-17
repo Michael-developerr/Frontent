@@ -1,7 +1,3 @@
-import { Route, Routes } from "react-router-dom";
-import { Link } from "react-router-dom";
-
-import { Suspense } from "react";
 import "./styles/index.scss";
 
 import { classNames } from "shared/lib/classNames/classNames";

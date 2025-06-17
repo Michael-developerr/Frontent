@@ -4,8 +4,8 @@
     "noImplicitAny": true, //не позвоялет какие то переменные без явыного типа
     "module": "es2020",
     "target": "es5", //для поддержки браузеров
+    "strict": true,
     "jsx": "react-jsx",
-
     "allowJs": true, //обработка не только js, но ts
     "moduleResolution": "node", //здесь два свойства nodeи классик в 99%node
     "baseUrl": ".", // для абсолютного импорта
@@ -18,7 +18,7 @@
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
-    },
-  //  "include": ["src", "global.d.ts"]
+    }
+    //  "include": ["src", "global.d.ts"]
   }
 }
