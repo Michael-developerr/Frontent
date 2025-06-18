@@ -4,7 +4,7 @@ import { routeConfig } from "shared/config/routerConfig/routerConfig";
 
 const AppRouter = () => {
   return (
-    <Suspense fallback={<p> Идет загрузка</p>}>
+    <Suspense fallback={<p> Идет загрузка </p>}>
       <div className="page-wrapper">
         <Routes>
           {Object.values(routeConfig).map(({ element, path }) => (

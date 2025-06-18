@@ -6,7 +6,6 @@ import { AppRouter } from "./providers/route";
 import { NavBar } from "widgets/Navbar";
 import { SideBar } from "widgets/sideBar";
 
-import { useTranslation } from "react-i18next";
 import { Suspense } from "react";
 
 const App = () => {
@@ -16,7 +15,6 @@ const App = () => {
     <div className={classNames("app", {}, [theme])}>
       <Suspense fallback={<div>Loading translations...</div>}>
         <NavBar />
-     
       </Suspense>
       <div className="content-page">
         <SideBar />

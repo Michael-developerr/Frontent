@@ -1,15 +1,12 @@
 @use "reset";
-@use "./variables/globals.scss";
-@use "./themes/normal.scss";
-@use "./themes/dark.scss";
+@use "./variables/globals";
+@use "./themes/normal";
+@use "./themes/dark";
 
 .app {
   font: var(--font-m);
-
   background-color: var(--bg-colar);
-
   color: var(--primary-color);
-
   min-height: 100vh;
 }
 
@@ -20,5 +17,4 @@
 .page-wrapper {
   flex-grow: 1;
   padding: 20px;
-
 }

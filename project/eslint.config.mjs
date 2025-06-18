@@ -5,10 +5,12 @@ import pluginReact from "eslint-plugin-react";
 import { defineConfig } from "eslint/config";
 import parserTs from "@typescript-eslint/parser";
 
+
 export default defineConfig([
   js.configs.recommended,
   tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
+
 
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
@@ -26,8 +28,8 @@ export default defineConfig([
         "error",
         {
           varsIgnorePattern: "^_",
-          argsIgnorePattern: "^_"
-        }
+          argsIgnorePattern: "^_",
+        },
       ],
 
       "@typescript-eslint/ban-ts-comment": [
@@ -37,12 +39,13 @@ export default defineConfig([
           "ts-ignore": "allow-with-description",
           "ts-nocheck": true,
           "ts-check": false,
-          "minimumDescriptionLength": 3
-        }
+          minimumDescriptionLength: 3,
+        },
       ],
 
       "react/react-in-jsx-scope": "off",
       "react/jsx-uses-react": "off",
+  
     },
     settings: {
       react: { version: "detect" },
