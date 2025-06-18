@@ -9,3 +9,14 @@ export function buildDevServer(options: BultdOptions): DevServerConfiguration {
     hot: true,
   };
 }
+// Настройка локального сервера разработки (webpack-dev-server)
+
+
+
+// port	На каком порту запускать dev-сервер
+
+// open	Открывать ли браузер автоматически
+
+// historyApiFallback	Нужен для React Router (чтобы работать по всем маршрутам)
+
+// hot	Включает HMR (Hot Module Replacement) — горячую перезагрузку

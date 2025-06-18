@@ -51,3 +51,20 @@ export function buildLoaders({ isDev }: BultdOptions): webpack.RuleSetRule[] {
   };
   return [fileLoader, svgLoader, typescriptLoader, cssLoaders];
 }
+
+// Здесь ты описываешь, как обрабатывать разные типы файлов.
+
+
+
+
+
+// Loader	Что делает
+// ts-loader	Компилирует .ts и .tsx в обычный JS
+
+// css-loader + sass-loader	Обрабатывают .scss и .css, в зависимости от окружения (dev/prod)
+
+// MiniCssExtractPlugin.loader или style-loader	В dev режиме вставляет CSS прямо в JS, а в prod — в отдельные файлы
+
+// file-loader	Копирует картинки, шрифты и т.д.
+
+// @svgr/webpack	Позволяет импортировать SVG как React-компоненты

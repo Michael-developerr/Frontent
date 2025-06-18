@@ -1,4 +1,4 @@
-.Sidebar {
+.sidebar {
   height: calc(100vh - var(--navbar-heigth));
   width: var(--sidebar-width);
   background-color: var(--inverted-bg-colar);
@@ -15,4 +15,8 @@
   bottom: 20px;
   display: flex;
   justify-content: center;
+}
+
+.lang {
+  margin-left: 20px;
 }
