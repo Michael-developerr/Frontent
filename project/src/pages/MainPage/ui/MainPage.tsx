@@ -2,8 +2,8 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 
 const MainPage = () => {
-  const { t } = useTranslation('main');
-
+  const { t } = useTranslation("main");
+  console.log("MainPage loaded");
   return <div>{t("Главная страница")}</div>;
 };
 
