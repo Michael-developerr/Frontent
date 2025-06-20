@@ -7,7 +7,7 @@ const MainPage = () => {
   console.log("MainPage loaded");
   return (
     <div>
-      <BugButton />
+      {/* <BugButton /> */}
       {t("Главная страница")}
     </div>
   );

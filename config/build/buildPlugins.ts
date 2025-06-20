@@ -1,16 +1,19 @@
+// Плагины для расширения Webpack-функциональности.
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import webpack from "webpack";
 import { BultdOptions } from "./types/config";
-// Плагины для расширения Webpack-функциональности.
+
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
+
 export function buildPlugins({
   paths,
   isDev,
 }: BultdOptions): webpack.WebpackPluginInstance[] {
   return [
     new webpack.ProvidePlugin({
-      process: "process/browser.js", 
-      Buffer: ["buffer", "Buffer"], 
+      process: "process/browser.js",
+      Buffer: ["buffer", "Buffer"],
     }),
     new HtmlWebpackPlugin({
       template: paths.html,
@@ -24,10 +27,11 @@ export function buildPlugins({
       __IS_DEV__: JSON.stringify(isDev),
     }),
     new webpack.HotModuleReplacementPlugin(),
-   
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false,
+    }),
   ];
 }
-
 
 // Плагин	Зачем нужен
 // HtmlWebpackPlugin	Создаёт HTML-файл с подключёнными JS/CSS
