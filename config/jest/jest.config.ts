@@ -23,6 +23,7 @@ const config: Config = {
 
   moduleDirectories: ["node_modules"],
 
+  modulePaths: ["<rootDir>src"], //прочитать про modulePaths до куда он идет 
   moduleFileExtensions: [
     "js",
     "mjs",
@@ -41,7 +42,7 @@ const config: Config = {
   testMatch: [
     "**/__tests__/**/*.?([mc])[jt]s?(x)",
     "**/?(*.)+(spec|test).?([mc])[jt]s?(x)",
-    '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
+    "<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)",
   ],
 
   // Indicates whether the coverage information should be collected while executing the test

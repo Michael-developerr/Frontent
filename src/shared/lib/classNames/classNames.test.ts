@@ -1,4 +1,4 @@
-import { classNames } from "./classNames";
+import { classNames } from "shared/lib/classNames/classNames";
 
 describe("classNames", () => {
   test("with only first param", () => {
@@ -29,6 +29,5 @@ describe("classNames", () => {
       ])
     ).toBe(expected);
   });
-
 });
 //узнать почему mode добавляется в самый конец + посмотреть как они работают
