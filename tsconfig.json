@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/", //куда производится сборка , но она не важна так как мы собираем с помощью webpacka
+    "noImplicitAny": true, //не позвоялет какие то переменные без явыного типа
+    "module": "es2020",
+    "target": "es5", //для поддержки браузеров
+    "strict": true,
+    "jsx": "react-jsx",
+    "allowJs": true, //обработка не только js, но ts
+    "moduleResolution": "node", //здесь два свойства nodeи классик в 99%node
+    "baseUrl": ".", // для абсолютного импорта
+    "paths": {
+      "*": ["./src/*"]
+    },
+    "esModuleInterop": true, //первый флаг позволяет  работать вместо require,import и export
+    "allowSyntheticDefaultImports": true // чтобы можно было писать импроты без as (import * as path from "path";) н
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+    //  "include": ["src", "global.d.ts"]
+  }
+}
