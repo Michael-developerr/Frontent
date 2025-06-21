@@ -8,9 +8,9 @@
     "jsx": "react-jsx",
     "allowJs": true, //обработка не только js, но ts
     "moduleResolution": "node", //здесь два свойства nodeи классик в 99%node
-    "baseUrl": ".", // для абсолютного импорта
+    "baseUrl": ".", // для абсолютного импорта Это значит: абсолютные импорты начинаются от корня проекта (относительно tsconfig.json).
     "paths": {
-      "*": ["./src/*"]
+      "*": ["./src/*"] //"*" означает любая строка, которую ты указываешь в import ( import X from "что-угодно"; // вот это "что-угодно" и есть "*" в ключе)
     },
     "esModuleInterop": true, //первый флаг позволяет  работать вместо require,import и export
     "allowSyntheticDefaultImports": true // чтобы можно было писать импроты без as (import * as path from "path";) н
@@ -19,6 +19,8 @@
     "compilerOptions": {
       "module": "CommonJS"
     }
-    //  "include": ["src", "global.d.ts"]
-  }
+  },
+  "include": ["src", "./config/jest/setupTests.ts"]
 }
+
+// по завершению разделить tsconfig.json от webpack.config на два файла
