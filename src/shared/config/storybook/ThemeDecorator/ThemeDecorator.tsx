@@ -1,6 +1,7 @@
 import { Decorator } from "@storybook/react";
 import { Theme, ThemeProvider } from "app/providers/ThemeProvider";
 
+
 export const ThemrDecorator =
   (theme: Theme): Decorator =>
   (Story) => {
@@ -12,3 +13,8 @@ export const ThemrDecorator =
       </div>
     );
   };
+
+
+
+
+  ThemrDecorator

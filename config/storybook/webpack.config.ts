@@ -18,18 +18,7 @@ export default ({ config }: { config: Configuration }) => {
   config.resolve.modules.push(paths.src);
   config.resolve.extensions.push("ts", "tsx"); //список расширений, которые Webpack будет автоматически подставлять при импорте файлов.
 
-  // config.module?.rules = config.module?.rules.map((rule: RuleSetRule) => {
-  //   if (/svg/.test(rule.test as string)) {
-  //     return { ...rule, exclude: /\.svg$/i };
-  //   }
-  //   return rule;
-  // });
-
-  // config.module?.rules?.push({
-  //   test: /\.svg$/,
-  //   use: ["@svgr/webpack"],
-  // });
-
+  
 config.module?.rules?.forEach((rule) => {
     if (
       typeof rule === "object" &&

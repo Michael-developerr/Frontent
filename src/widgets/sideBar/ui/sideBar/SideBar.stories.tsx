@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-webpack5";
 
-SideBar;
-// import { ThemrDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
-// import { Theme } from "app/providers/ThemeProvider";
+
 import { SideBar } from "./SideBar";
 
 const meta = {
@@ -26,4 +24,4 @@ export const Ligth: Story = {
 
 export const Dark: Story = { args: {} };
 
-// Dark.decorators = [ThemrDecorator(Theme.DARK)];
+
