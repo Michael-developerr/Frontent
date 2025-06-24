@@ -32,6 +32,7 @@ export default defineConfig([
         {
           varsIgnorePattern: "^_",
           argsIgnorePattern: "^_",
+          
         },
       ],
 
@@ -48,6 +49,7 @@ export default defineConfig([
 
       "react/react-in-jsx-scope": "off",
       "react/jsx-uses-react": "off",
+       'react/display-name': 'off',
   
     },
     settings: {

@@ -1,5 +1,5 @@
 import React, { ErrorInfo, ReactNode, Suspense } from "react";
-import { withTranslation } from "react-i18next";
+
 import { PageError } from "widgets/PageError/ui/PageError";
 
 interface ErrorBoundaryProps {
@@ -21,6 +21,7 @@ class ErrorBoundary extends React.Component<
 
   static getDerivedStateFromError(error: Error) {
     // Позволяет отобразить запасной UI при следующем рендере
+    console.log(error)
     return { hasError: true };
   }
 

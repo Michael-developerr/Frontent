@@ -1,4 +1,4 @@
-import type { Configuration, RuleSetRule } from "webpack";
+import type { Configuration } from "webpack";
 import { Buildpaths } from "../build/types/config";
 import path from "path";
 import { buildCssLoader } from "../build/loaders/buildCssLoader";
@@ -18,8 +18,7 @@ export default ({ config }: { config: Configuration }) => {
   config.resolve.modules.push(paths.src);
   config.resolve.extensions.push("ts", "tsx"); //список расширений, которые Webpack будет автоматически подставлять при импорте файлов.
 
-  
-config.module?.rules?.forEach((rule) => {
+  config.module?.rules?.forEach((rule) => {
     if (
       typeof rule === "object" &&
       rule !== null &&

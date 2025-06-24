@@ -6,6 +6,7 @@ export default {
   rules: {
     "custom-property-empty-line-before": null,
     "value-keyword-case": null,
-
+    "shorthand-property-no-redundant-values": null,
+    "selector-class-pattern": null,
   },
 };
