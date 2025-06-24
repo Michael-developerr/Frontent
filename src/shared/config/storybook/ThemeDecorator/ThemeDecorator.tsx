@@ -14,7 +14,3 @@ export const ThemrDecorator =
     );
   };
 
-
-
-
-  ThemrDecorator
