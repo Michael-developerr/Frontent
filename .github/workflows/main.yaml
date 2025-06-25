@@ -37,3 +37,8 @@ jobs:
 
       - name: Unit testing
         run: npm run test:unit
+      
+      - name: Run Chromatic UI tests
+        env:
+          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+        run: npm run test:ui
