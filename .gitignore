@@ -5,3 +5,5 @@ dist/
 /build/
 *storybook.log
 storybook-static/
+/coverage/
+/extractedTranslations/
