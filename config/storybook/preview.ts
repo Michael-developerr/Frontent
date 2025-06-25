@@ -1,6 +1,6 @@
 import { Theme } from "./../../src/app/providers/ThemeProvider/lib/ThemeContext";
 
-import { StyleDecorator } from './../../src/shared/config/storybook/styleDecorator/StyleDecorator';
+import { StyleDecorator } from '../../src/shared/config/storybook/styleDecorator/StyleDecorator';
 import { ThemrDecorator } from "./../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { RouterDecorator } from "./../../src/shared/config/storybook/RouterDecorator/RouterDecorator";
 
