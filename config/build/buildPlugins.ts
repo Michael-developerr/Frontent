@@ -10,7 +10,7 @@ export function buildPlugins({
   paths,
   isDev,
 }: BultdOptions): webpack.WebpackPluginInstance[] {
-  return [
+  const plugins = [
     new webpack.ProvidePlugin({
       process: "process/browser.js",
       Buffer: ["buffer", "Buffer"],
@@ -26,11 +26,18 @@ export function buildPlugins({
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
     }),
-    new webpack.HotModuleReplacementPlugin(),
-    new BundleAnalyzerPlugin({
-      openAnalyzer: false,
-    }),
   ];
+
+  if (isDev) {
+    plugins.push(new webpack.HotModuleReplacementPlugin());
+    plugins.push(
+      new BundleAnalyzerPlugin({
+        openAnalyzer: false,
+      })
+    );
+  }
+
+  return plugins;
 }
 
 // Плагин	Зачем нужен
