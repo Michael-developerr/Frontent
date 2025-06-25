@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-webpack5";
 
 import { fn } from "storybook/test";
 
-import { Button, ThemeButton } from "./Button";
+import { Button, ButtonTheme } from "./Button";
 import { ThemrDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
 
@@ -32,21 +32,21 @@ export const Primary: Story = {
 export const Clear: Story = {
   args: {
     children: "Text",
-    theme: ThemeButton.CLEAR,
+    theme: ButtonTheme.CLEAR,
   },
 };
 
 export const Outline: Story = {
   args: {
     children: "Text",
-    theme: ThemeButton.OUTLINE,
+    theme: ButtonTheme.OUTLINE,
   },
 };
 
 export const OutlineDark: Story = {
   args: {
     children: "Text",
-    theme: ThemeButton.OUTLINE,
+    theme: ButtonTheme.OUTLINE,
   },
 };
 OutlineDark.decorators = [ThemrDecorator(Theme.DARK)];

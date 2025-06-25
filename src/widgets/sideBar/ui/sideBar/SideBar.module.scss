@@ -1,5 +1,5 @@
 .sidebar {
-  height: calc(100vh - var(--navbar-heigth));
+  height: calc(100vh - var(--navbar-height));
   width: var(--sidebar-width);
   background-color: var(--inverted-bg-color);
   position: relative;
@@ -19,4 +19,10 @@
 
 .lang {
   margin-left: 20px;
+}
+
+.collapseBtn {
+  position: absolute;
+  right: -32px;
+  bottom: 32px;
 }
