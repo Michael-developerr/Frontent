@@ -4,23 +4,25 @@ import { ButtonHTMLAttributes, FC } from "react";
 
 export enum ThemeButton {
   CLEAR = "clear",
+  OUTLINE = "outline",
 }
-
+// test
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   theme?: ThemeButton;
 }
 
 export const Button: FC<ButtonProps> = (props) => {
-  const { className, children, theme = ThemeButton.CLEAR, ...otherProps } = props;
+  const { className, children, theme, ...otherProps } = props;
 
   return (
     <button
-      className={classNames(cls.button, { [cls[theme]]: true }, [className ??''])}
+      className={classNames(cls.button, { [cls[theme ?? ""]]: true }, [
+        className ?? "",
+      ])}
       {...otherProps}
-
     >
-    {children}    
+      {children}
     </button>
   );
 };

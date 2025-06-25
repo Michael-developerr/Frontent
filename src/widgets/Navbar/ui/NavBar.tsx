@@ -7,7 +7,7 @@ interface NavBarProps {
   className?: string;
 }
 
-const NavBar = ({ className }: NavBarProps) => {
+ export const NavBar = ({ className }: NavBarProps) => {
   return (
     <div className={classNames(cls.navbar, {}, [className ?? ""])}>
       {/* <ThemeSwitcher/> */}
@@ -32,4 +32,4 @@ const NavBar = ({ className }: NavBarProps) => {
   );
 };
 
-export default NavBar;
+
