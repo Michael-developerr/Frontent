@@ -33,7 +33,7 @@ export const Button: FC<ButtonProps> = (props) => {
 
   const mods: Record<string, boolean> = {
     [cls[theme ?? ""]]: true,
-    [cls.square]: square ?? true,
+    [cls.square]: square ?? false,
     [cls[size]]: true,
   };
 
