@@ -1,8 +1,5 @@
-import { StyleDecorator } from './../../src/shared/config/storybook/StyleDecorator/StyleDecorator';
+import { StyleDecorator } from "./../../src/shared/config/storybook/StyleDecorator/StyleDecorator";
 import { Theme } from "./../../src/app/providers/ThemeProvider/lib/ThemeContext";
-
-
-
 
 import { ThemrDecorator } from "./../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { RouterDecorator } from "./../../src/shared/config/storybook/RouterDecorator/RouterDecorator";
@@ -17,6 +14,10 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/i,
       },
+    },
+    chromatic: {
+      disableAnimations: true,
+       delay: 300,
     },
   },
 };
