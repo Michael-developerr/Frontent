@@ -12,21 +12,7 @@ interface NavBarProps {
     <div className={classNames(cls.navbar, {}, [className ?? ""])}>
       {/* <ThemeSwitcher/> */}
       <div className={cls.links}>
-        <AppLink
-          theme={AppLinkTheme.SECONDARY}
-          to={"/"}
-          className={cls.mainlinks}
-        >
-          {" "}
-          Главная
-        </AppLink>
-        <AppLink
-          theme={AppLinkTheme.RED}
-          to={"/about"}
-          className={cls.mainlinks}
-        >
-          О сайте
-        </AppLink>
+        /
       </div>
     </div>
   );

@@ -34,18 +34,25 @@
 }
 
 .square.size_m {
+  width: var(--font-size-m);
+  height: var(--font-line-m);
   font-size: var(--font-size-m);
   line-height: var(--font-line-m);
   font-family: var(--font-family-main);
 }
 
 .square.size_l {
+  width: var(--font-size-l);
+  height: var(--font-line-l);
+
   font-size: var(--font-size-l);
   line-height: var(--font-line-l);
   font-family: var(--font-family-main);
 }
 
 .square.size_xl {
+  width: var(--font-size-xl);
+  height: var(--font-line-xl);
   font-size: var(--font-size-xl);
   line-height: var(--font-line-xl);
   font-family: var(--font-family-main);
