@@ -1,4 +1,4 @@
-import { StyleDecorator } from "./../../src/shared/config/storybook/StyleDecorator/StyleDecorator";
+import { StyleGlDecorator } from "./../../src/shared/config/storybook/StyleGlDecorator/StyleGlDecorator";
 import { Theme } from "./../../src/app/providers/ThemeProvider/lib/ThemeContext";
 
 import { ThemrDecorator } from "./../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator";
@@ -7,7 +7,7 @@ import { RouterDecorator } from "./../../src/shared/config/storybook/RouterDecor
 import type { Preview } from "@storybook/react";
 
 const preview: Preview = {
-  decorators: [StyleDecorator, ThemrDecorator(Theme.LIGHT), RouterDecorator],
+  decorators: [StyleGlDecorator, ThemrDecorator(Theme.LIGHT), RouterDecorator],
   parameters: {
     controls: {
       matchers: {
@@ -17,7 +17,7 @@ const preview: Preview = {
     },
     chromatic: {
       disableAnimations: true,
-       delay: 300,
+      delay: 300,
     },
   },
 };
