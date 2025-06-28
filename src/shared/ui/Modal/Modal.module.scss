@@ -7,12 +7,7 @@
   z-index: var(--modal-z-index);
   opacity: 0;
   pointer-events: none;
-  color: var( --primary-color);
-}
-
-.modal.dark {
-  --bg-color: #090949;// так делать плохо
-  --primary-color: #04ff04; // так делать плохо
+  color: var(--primary-color);
 }
 
 .overlay {
