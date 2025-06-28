@@ -1,14 +1,6 @@
 import "@testing-library/jest-dom";
-// import { jestEmptyi18n } from "./jestEmptyi18n";
 
+import { TextEncoder, TextDecoder } from "util";
 
-// // Глобальный мок useTranslation
-// jest.mock("react-i18next", () => ({
-//   useTranslation: () => ({
-//     t: (key: string) => key,
-//     i18n: {
-//       changeLanguage: jest.fn(),
-//       language: 'en',
-//     },
-//   }),
-// }));
+global.TextEncoder = TextEncoder as typeof globalThis.TextEncoder;
+global.TextDecoder = TextDecoder as typeof globalThis.TextDecoder;

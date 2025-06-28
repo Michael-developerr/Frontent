@@ -8,5 +8,7 @@ export default {
     "value-keyword-case": null,
     "shorthand-property-no-redundant-values": null,
     "selector-class-pattern": null,
+    "declaration-block-no-redundant-longhand-properties": null,
+    "color-function-alias-notation":null
   },
 };

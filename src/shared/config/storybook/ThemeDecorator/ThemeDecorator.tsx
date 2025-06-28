@@ -5,10 +5,10 @@ export const ThemrDecorator =
   (theme: Theme): Decorator =>
   (Story) => {
     return (
-      <div className={`app ${theme}`}>
-        <ThemeProvider>
+      <ThemeProvider initialTheme={theme}>
+        <div className={`app ${theme}`}>
           <Story />
-        </ThemeProvider>
-      </div>
+        </div>
+      </ThemeProvider>
     );
   };
