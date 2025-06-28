@@ -1,6 +1,3 @@
-import { DeepPartial } from "utility-types";
-
-import { StateSchema } from "app/providers/StoreProvider";
 import { counterAction, counterReduser } from "./counterSlice";
 import { CounterSchema } from "../type/counterSchema";
 
