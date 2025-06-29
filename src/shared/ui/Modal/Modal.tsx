@@ -1,7 +1,7 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./Modal.module.scss";
 import {
-  lazy,
+
   ReactNode,
   useCallback,
   useEffect,
