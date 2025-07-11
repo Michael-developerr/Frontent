@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { NavBar } from "./NavBar";
 import { ThemrDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
+import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator";
 
 const meta = {
   title: "widgets/NavBar",
@@ -20,10 +21,10 @@ type Story = StoryObj<typeof meta>;
 
 export const Ligth: Story = {
   args: {},
-  decorators: [ThemrDecorator(Theme.LIGHT)],
+  decorators: [ThemrDecorator(Theme.LIGHT), StoreDecorator({})],
 };
 
 export const Dark: Story = {
   args: {},
-  decorators: [ThemrDecorator(Theme.DARK)],
+  decorators: [ThemrDecorator(Theme.DARK), StoreDecorator({})],
 };

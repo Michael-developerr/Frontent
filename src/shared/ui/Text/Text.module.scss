@@ -1,0 +1,23 @@
+.title {
+  color: var(--primary-color);
+  font-size: var(--font-size-l);
+  line-height: var(--font-line-l);
+  font-family: var(--font-family-main);
+}
+
+.text {
+  color: var(--secondary-color);
+  font-size: var(--font-size-m);
+  line-height: var(--font-line-m);
+  font-family: var(--font-family-main);
+}
+
+.error {
+  .title {
+    color: var(--red-ligth);
+  }
+
+  .text {
+    color: var(red-dark);
+  }
+}

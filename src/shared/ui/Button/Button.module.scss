@@ -79,3 +79,7 @@
   line-height: var(--font-line-xl);
   font-family: var(--font-family-main);
 }
+
+.disabled {
+  opacity: 0.5;
+}
