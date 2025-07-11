@@ -1,4 +1,3 @@
-import { TranslationDecorator } from './../../src/shared/config/storybook/TranslationDecorator/TranslationDecorator';
 import { StyleGlDecorator } from "./../../src/shared/config/storybook/StyleGlDecorator/StyleGlDecorator";
 import { Theme } from "./../../src/app/providers/ThemeProvider/lib/ThemeContext";
 
@@ -8,7 +7,7 @@ import { RouterDecorator } from "./../../src/shared/config/storybook/RouterDecor
 import type { Preview } from "@storybook/react";
 
 const preview: Preview = {
-  decorators: [StyleGlDecorator, ThemrDecorator(Theme.LIGHT), RouterDecorator,TranslationDecorator],
+  decorators: [StyleGlDecorator, ThemrDecorator(Theme.LIGHT), RouterDecorator],
   parameters: {
     controls: {
       matchers: {
