@@ -1,13 +1,24 @@
+import path from "path";
 import { BultdOptions } from "./types/config";
 import { ResolveOptions } from "webpack";
 // Настройка того, как Webpack ищет файлы и модули.
 export function buildResolvers(options: BultdOptions): ResolveOptions {
   return {
     extensions: [".tsx", ".ts", ".js"],
+
     preferAbsolute: true,
     modules: [options.paths.src, "node_modules"],
     mainFields: ["browser", "module", "main"],
-    alias: {},
+    
+    alias: {
+      app: path.resolve(options.paths.src, "app"),
+      shared: path.resolve(options.paths.src, "shared"),
+      entities: path.resolve(options.paths.src, "entities"),
+      features: path.resolve(options.paths.src, "features"),
+      pages: path.resolve(options.paths.src, "pages"),
+      widgets: path.resolve(options.paths.src, "widgets"),
+    },
+
     fallback: {
       process: require.resolve("process/browser.js"),
       buffer: require.resolve("buffer/"),

@@ -1,9 +1,11 @@
-import type { Configuration } from "webpack";
+import { DefinePlugin, type Configuration } from "webpack";
 import { Buildpaths } from "../build/types/config";
 import path from "path";
 import { buildCssLoader } from "../build/loaders/buildCssLoader";
 
 export default ({ config }: { config: Configuration }) => {
+  const srcPath = path.resolve(__dirname, "..", "..", "src");
+
   const paths: Buildpaths = {
     build: "",
     html: "",
@@ -14,6 +16,16 @@ export default ({ config }: { config: Configuration }) => {
   config.resolve ??= {};
   config.resolve.modules ??= [];
   config.resolve.extensions ??= [];
+
+  config.resolve.alias = {
+    ...(config.resolve.alias ?? {}),
+    entities: path.resolve(srcPath, "entities"),
+    shared: path.resolve(srcPath, "shared"),
+    features: path.resolve(srcPath, "features"),
+    pages: path.resolve(srcPath, "pages"),
+    widgets: path.resolve(srcPath, "widgets"),
+    app: path.resolve(srcPath, "app"),
+  };
 
   config.resolve.modules.push(paths.src);
   config.resolve.extensions.push("ts", "tsx"); //список расширений, которые Webpack будет автоматически подставлять при импорте файлов.
@@ -35,6 +47,8 @@ export default ({ config }: { config: Configuration }) => {
   });
 
   config.module?.rules?.push(buildCssLoader(true));
+
+  config.plugins?.push(new DefinePlugin({ __IS_DEV__: true }));
   return config;
 };
 // Роль webpack.config.ts
