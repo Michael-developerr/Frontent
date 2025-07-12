@@ -3,6 +3,7 @@ import { StateSchema } from "./StateSchema";
 import { counterReduser } from "entities/Counter";
 import { userReduser } from "entities/User";
 import { loginReduser } from "features/AuthByUserName";
+import { createReducerManager } from "./reducerManager";
 
 export function createReduxStore(initialState?: StateSchema) {
   const rootReduser: ReducersMapObject<StateSchema> = {
@@ -11,11 +12,17 @@ export function createReduxStore(initialState?: StateSchema) {
     loginForm: loginReduser,
   };
 
+  const reducerManager = createReducerManager(rootReduser);
+
   const store = configureStore<StateSchema>({
     reducer: rootReduser,
     devTools: __IS_DEV__,
     preloadedState: initialState,
   });
+
+  // @ts-ignore
+  store.reducerManager = reducerManager;
+
   return store;
 }
 
