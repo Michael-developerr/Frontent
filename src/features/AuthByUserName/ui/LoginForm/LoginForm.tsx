@@ -11,11 +11,11 @@ import { loginByUsername } from "../../model/services/loginByUsername/loginByUse
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { Text, TextTheme } from "shared/ui/Text/Text";
 
-interface LoginFormProps {
+export interface LoginFormProps {
   className?: string;
 }
 
-export const LoginForm = memo(({ className }: LoginFormProps) => {
+ const LoginForm = memo(({ className }: LoginFormProps) => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
   const { username, password, isLoading, error } = useSelector(getLoginState);
@@ -73,3 +73,4 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
     </div>
   );
 });
+export default LoginForm
