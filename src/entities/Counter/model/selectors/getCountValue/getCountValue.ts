@@ -4,5 +4,5 @@ import { CounterSchema } from "../../type/counterSchema";
 
 export const getCountValue = createSelector(
   getCounter,
-  (counter: CounterSchema) => counter.value
+  (counter: CounterSchema | undefined) => counter?.value ?? 0
 );
