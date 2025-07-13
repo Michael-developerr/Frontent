@@ -1,43 +1,41 @@
 import {
   Action,
-  combineReducers,
   Reducer,
+  ReducersMapObject,
+  combineReducers,
 } from "@reduxjs/toolkit";
 import { ReducerManager, StateSchema, StateSchemaKey } from "./StateSchema";
 
 export function createReducerManager(
-  initialReducers: { [key in StateSchemaKey]?: Reducer }
+  initialReducers: ReducersMapObject<StateSchema>
 ): ReducerManager {
-  const reducers: Record<string, Reducer<any, any>> = {
-    ...initialReducers,
-  };
-
+  let reducers = { ...initialReducers };
   let combinedReducer = combineReducers(reducers);
-  let keysToRemove: Array<StateSchemaKey> = [];
+  let keysToRemove: StateSchemaKey[] = [];
 
   return {
     getReducerMap: () => reducers,
 
-    reduce: (state: StateSchema | undefined, action: Action) => {
+    reduce: (state: StateSchema | undefined, action: Action): StateSchema => {
       if (keysToRemove.length > 0 && state) {
         state = { ...state };
-        for (let key of keysToRemove) {
+        for (const key of keysToRemove) {
           delete state[key];
         }
         keysToRemove = [];
       }
 
-      return combinedReducer(state, action);
+      return combinedReducer(state as any, action) as StateSchema;
     },
 
-    add: (key: StateSchemaKey, reducer: Reducer) => {
+    add: (key: StateSchemaKey, reducer: Reducer): void => {
       if (!key || reducers[key]) return;
 
       reducers[key] = reducer;
       combinedReducer = combineReducers(reducers);
     },
 
-    remove: (key: StateSchemaKey) => {
+    remove: (key: StateSchemaKey): void => {
       if (!key || !reducers[key]) return;
 
       delete reducers[key];

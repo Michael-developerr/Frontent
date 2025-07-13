@@ -6,7 +6,7 @@ import { Input } from "shared/ui/Input/Input";
 import { useSelector, useStore } from "react-redux";
 import { memo, useCallback, useEffect } from "react";
 import { loginAction, loginReduser } from "../../model/slice/loginSlice";
-import { getLoginState } from "../../model/selectors/getLoginState/getLoginState";
+
 import { loginByUsername } from "../../model/services/loginByUsername/loginByUsername";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { Text, TextTheme } from "shared/ui/Text/Text";
@@ -32,9 +32,10 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
   const error = useSelector(getLoginError);
   useEffect(() => {
     store.reducerManager.add("loginForm", loginReduser);
-
+    dispatch({ type: "@int loginForm reducer" });
     return () => {
       store.reducerManager.remove("loginForm");
+       dispatch({ type: "@Destroy loginForm reducer" });
     };
   }, []);
 
