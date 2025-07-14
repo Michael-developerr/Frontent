@@ -10,11 +10,14 @@ const wrapReducer = <S, A>(reducer: (state: S, action: A) => S) => {
   return (state: S | undefined, action: A) => reducer(state as S, action);
 };
 
-export function createReduxStore(initialState?: DeepPartial<StateSchema>) {
+export function createReduxStore(
+  initialState?: DeepPartial<StateSchema>,
+  asyncRedusers?: ReducersMapObject<StateSchema>
+) {
   const rootReduser: ReducersMapObject<StateSchema> = {
+    ...asyncRedusers,
     counter: wrapReducer(counterReduser),
     user: wrapReducer(userReduser),
-  
   };
 
   const reducerManager = createReducerManager(rootReduser);
