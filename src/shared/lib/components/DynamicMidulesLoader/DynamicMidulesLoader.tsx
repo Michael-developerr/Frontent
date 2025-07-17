@@ -31,9 +31,9 @@ export const DynamicMidulesLoader: FC<DynamicMidulesLoaderProps> = (props) => {
 
     return () => {
       if (removeAfterunmout) {
-        Object.entries(reducers).forEach(([name, reducer]) => {
-          store.reducerManager.add(name as StateSchemaKey, reducer);
-          dispatch({ type: `@distr ${name} reducer` });
+        Object.entries(reducers).forEach(([name]) => {
+          store.reducerManager.remove(name as StateSchemaKey); // <--- исправлено
+          dispatch({ type: `@destroy ${name} reducer` });
         });
       }
     };

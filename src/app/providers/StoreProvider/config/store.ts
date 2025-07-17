@@ -1,37 +1,56 @@
 import { configureStore, ReducersMapObject } from "@reduxjs/toolkit";
-import { StateSchema } from "./StateSchema";
+import { ReduxStoreWithManager, StateSchema } from "./StateSchema";
 import { counterReduser } from "entities/Counter";
 import { userReduser } from "entities/User";
 
 import { createReducerManager } from "./reducerManager";
 import { DeepPartial } from "utility-types";
 
-const wrapReducer = <S, A>(reducer: (state: S, action: A) => S) => {
-  return (state: S | undefined, action: A) => reducer(state as S, action);
-};
+// const wrapReducer = <S, A>(reducer: (state: S, action: A) => S) => {
+//   return (state: S | undefined, action: A) => reducer(state as S, action);
+// };
+
+import { ThunkMiddleware } from '@reduxjs/toolkit';
+
+import { ThunkExtraArg } from './ThunkExtraArg';
 
 export function createReduxStore(
   initialState?: DeepPartial<StateSchema>,
-  asyncRedusers?: ReducersMapObject<StateSchema>
+  asyncRedusers?: Partial<ReducersMapObject<StateSchema>>
 ) {
-  const rootReduser: ReducersMapObject<StateSchema> = {
-    ...asyncRedusers,
-    counter: wrapReducer(counterReduser),
-    user: wrapReducer(userReduser),
+  const rootReducers: ReducersMapObject<StateSchema> = {
+    ...(asyncRedusers as ReducersMapObject<StateSchema>),
+    counter: counterReduser,
+    user: userReduser,
   };
 
-  const reducerManager = createReducerManager(rootReduser);
+  const extraArg: ThunkExtraArg = {
+    api: axios,
+  };
 
-  const store = configureStore<StateSchema>({
-    reducer: reducerManager.reduce,
+  const store = configureStore({
+    reducer: (state, action) => state as StateSchema,
     devTools: __IS_DEV__,
     preloadedState: initialState as StateSchema,
-  });
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        thunk: {
+          extraArgument: extraArg,
+        },
+      }),
+  }) as ReduxStoreWithManager;
 
-  // @ts-ignore
+  const reducerManager = createReducerManager(rootReducers, store);
   store.reducerManager = reducerManager;
+  store.replaceReducer(reducerManager.reduce);
 
   return store;
 }
 
-export type AppDispatch = ReturnType<typeof createReduxStore>["dispatch"];
+import type { ThunkDispatch, AnyAction } from '@reduxjs/toolkit';
+import axios from "axios";
+
+
+
+
+export type AppDispatch = ThunkDispatch<StateSchema, ThunkExtraArg, AnyAction>;
