@@ -11,7 +11,8 @@ import { Reducer } from "@reduxjs/toolkit";
 export type ReducersList = {
   [name in StateSchemaKey]?: Reducer;
 };
-type ReducersListEntry = [StateSchemaKey, Reducer];
+
+
 interface DynamicMidulesLoaderProps {
   children?: ReactNode;
 
