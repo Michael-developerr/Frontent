@@ -6,13 +6,7 @@ import { userReduser } from "entities/User";
 import { createReducerManager } from "./reducerManager";
 import { DeepPartial } from "utility-types";
 
-// const wrapReducer = <S, A>(reducer: (state: S, action: A) => S) => {
-//   return (state: S | undefined, action: A) => reducer(state as S, action);
-// };
-
-import { ThunkMiddleware } from '@reduxjs/toolkit';
-
-import { ThunkExtraArg } from './ThunkExtraArg';
+import { ThunkExtraArg } from "./ThunkExtraArg";
 
 export function createReduxStore(
   initialState?: DeepPartial<StateSchema>,
@@ -29,7 +23,7 @@ export function createReduxStore(
   };
 
   const store = configureStore({
-    reducer: (state, action) => state as StateSchema,
+    reducer: (state) => state as StateSchema,
     devTools: __IS_DEV__,
     preloadedState: initialState as StateSchema,
     middleware: (getDefaultMiddleware) =>
@@ -47,10 +41,7 @@ export function createReduxStore(
   return store;
 }
 
-import type { ThunkDispatch, AnyAction } from '@reduxjs/toolkit';
+import type { ThunkDispatch, AnyAction } from "@reduxjs/toolkit";
 import axios from "axios";
-
-
-
 
 export type AppDispatch = ThunkDispatch<StateSchema, ThunkExtraArg, AnyAction>;
