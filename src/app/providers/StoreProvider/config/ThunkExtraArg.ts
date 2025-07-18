@@ -1,5 +1,5 @@
-import axios from "axios";
+import { AxiosInstance } from "axios";
 
 export interface ThunkExtraArg {
-  api: typeof axios;
+  api: AxiosInstance;
 }

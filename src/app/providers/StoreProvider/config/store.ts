@@ -2,11 +2,11 @@ import { configureStore, ReducersMapObject } from "@reduxjs/toolkit";
 import { ReduxStoreWithManager, StateSchema } from "./StateSchema";
 import { counterReduser } from "entities/Counter";
 import { userReduser } from "entities/User";
-
 import { createReducerManager } from "./reducerManager";
 import { DeepPartial } from "utility-types";
-
 import { ThunkExtraArg } from "./ThunkExtraArg";
+import type { ThunkDispatch, AnyAction } from "@reduxjs/toolkit";
+import axios from "axios";
 
 export function createReduxStore(
   initialState?: DeepPartial<StateSchema>,
@@ -40,8 +40,5 @@ export function createReduxStore(
 
   return store;
 }
-
-import type { ThunkDispatch, AnyAction } from "@reduxjs/toolkit";
-import axios from "axios";
 
 export type AppDispatch = ThunkDispatch<StateSchema, ThunkExtraArg, AnyAction>;
