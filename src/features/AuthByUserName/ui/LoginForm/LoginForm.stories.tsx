@@ -18,7 +18,9 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  args: {},
+  args: {
+      onSuccess: () => {},
+  },
 };
 Primary.decorators = [
   StoreDecorator({
@@ -27,7 +29,9 @@ Primary.decorators = [
 ];
 
 export const withError: Story = {
-  args: {},
+  args: {
+      onSuccess: () => {},
+  },
 };
 withError.decorators = [
   StoreDecorator({
@@ -36,7 +40,9 @@ withError.decorators = [
 ];
 
 export const Loading: Story = {
-  args: {},
+  args: {
+      onSuccess: () => {},
+  },
 };
 Loading.decorators = [
   StoreDecorator({

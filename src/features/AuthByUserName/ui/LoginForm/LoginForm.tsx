@@ -20,13 +20,14 @@ import {
 
 export interface LoginFormProps {
   className?: string;
+  onSuccess: () => void;
 }
 
 const initialReducers: ReducersList = {
   loginForm: loginReduser,
 };
 
-const LoginForm = memo(({ className }: LoginFormProps) => {
+const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
 
@@ -50,8 +51,12 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
   );
 
   const onLoginClick = useCallback(() => {
-    dispatch(loginByUsername({ username, password }));
-  }, [dispatch, password, username]);
+    dispatch(loginByUsername({ username, password })).then((res) => {
+      if (res.meta.requestStatus === "fulfilled") {
+        onSuccess();
+      }
+    });
+  }, [onSuccess,dispatch, password, username]);
 
   return (
     <DynamicMidulesLoader removeAfterunmout reducers={initialReducers}>
