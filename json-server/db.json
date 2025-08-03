@@ -16,6 +16,13 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "name": "Misha",
+    "lastname": "Smi",
+    "age": "25",
+    "currency": "Rub",
+    "country": "Russia",
+    "city": "Moscow",
+    "username": "admin",
+    "avatar": "https://avatarko.ru/img/kartinka/14/zhivotnye_kot_computer_13284.jpg"
   }
 }

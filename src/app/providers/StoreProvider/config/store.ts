@@ -43,4 +43,4 @@ export function createReduxStore(
 
 export type AppDispatch = ThunkDispatch<StateSchema, ThunkExtraArg, AnyAction>;
 
-// export type AppDispatch2 = ReturnType<typeof createReduxStore>["dispatch"];
+export type AppDispatch2 = ReturnType<typeof createReduxStore>["dispatch"];
