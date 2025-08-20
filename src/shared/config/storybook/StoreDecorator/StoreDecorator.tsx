@@ -5,9 +5,11 @@ import { DeepPartial } from "utility-types";
 import { Reducer, ReducersMapObject } from "@reduxjs/toolkit";
 import { loginReduser } from "features/AuthByUserName/model/slice/loginSlice";
 import { LoginSchema } from "features/AuthByUserName";
+import { profileReduser, ProfileSchema } from "entities/Pofile";
 
 const defaultReduser: DeepPartial<ReducersMapObject<StateSchema>> = {
-  loginForm: loginReduser as Reducer<LoginSchema | undefined>,
+ loginForm: loginReduser as Reducer<LoginSchema | undefined>,
+ profile: profileReduser as Reducer<ProfileSchema | undefined>,
 };
 
 export const StoreDecorator =
