@@ -4,8 +4,10 @@
  */
 
 import type { Config } from "jest";
-import path from "path";
-
+import { fileURLToPath } from "url";
+import { dirname, resolve } from "path";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const config: Config = {
   globals: {
     '__IS_DEV__':true
@@ -53,7 +55,7 @@ const config: Config = {
 
   moduleNameMapper: {
     "\\.s?css$": "identity-obj-proxy",
-    "\\.svg": path.resolve(__dirname, "jestEmptyComponent.tsx"),
+    "\\.svg": resolve(__dirname, "jestEmptyComponent.tsx"),
   
   },
   setupFilesAfterEnv: ["<rootDir>config/jest/setupTests.ts"],

@@ -7,7 +7,6 @@ import { Button, ButtonSize, ButtonTheme } from "shared/ui/Button/Button";
 
 import { SidebarItemsList } from "widgets/sideBar/model/items";
 import { Sidebartem } from "../SidebarItem/Sidebartem";
-import { useTranslation } from "react-i18next";
 
 interface SideBarProps {
   className?: string;

@@ -8,12 +8,10 @@ import pluginReact from "eslint-plugin-react";
 import { defineConfig } from "eslint/config";
 import parserTs from "@typescript-eslint/parser";
 
-
 export default defineConfig([
   js.configs.recommended,
   tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
-
 
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
@@ -32,7 +30,6 @@ export default defineConfig([
         {
           varsIgnorePattern: "^_",
           argsIgnorePattern: "^_",
-          
         },
       ],
 
@@ -49,8 +46,8 @@ export default defineConfig([
 
       "react/react-in-jsx-scope": "off",
       "react/jsx-uses-react": "off",
-       'react/display-name': 'off',
-  
+      "react/display-name": "off",
+      "react/prop-types": "off",
     },
     settings: {
       react: { version: "detect" },
